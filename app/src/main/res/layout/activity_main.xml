@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
+
+    <!-- HEADER -->
+
+    <RelativeLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#FFCC00"
+        android:padding="16dp">
+
+        <!-- LEFT TEXT -->
+
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="View your completed trips here. You can download invoices or quickly book the same order again."
+                android:textColor="@android:color/black"
+                android:textSize="13sp"/>
+
+        </LinearLayout>
+
+        <!-- TRUCK IMAGE -->
+
+        <ImageView
+            android:id="@+id/headerTruck"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="-10dp"
+            android:src="@drawable/truck"
+            android:scaleType="fitCenter"/>
+
+    </RelativeLayout>
+
+
+    <!-- MAIN CONTENT -->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llHeader"
+        android:layout_above="@id/bottomNavigation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="90dp">
+
+            <!-- SEARCH SECTION -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_margin="12dp"
+                android:orientation="horizontal">
+
+                <!-- SEARCH -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.3"
+                    android:background="@drawable/bg_search"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/search"/>
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="Search by Order ID / Location"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+                <!-- FILTER -->
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_search"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/filter"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Filter"
+                        android:textSize="10sp"/>
+
+                </LinearLayout>
+
+                <!-- SORT -->
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_search"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/sorting"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sort"
+                        android:textSize="10sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- FILTER BUTTONS -->
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="All Orders"
+                        android:textColor="@android:color/black"
+                        app:backgroundTint="#FFCC00"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
+                        android:text="Completed"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
+                        android:text="Cancelled"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
+                        android:text="Booked Again"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+            <!-- INFO BOX -->
+
+            <!-- INFO BOX -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="14dp"
+                android:background="#CCBEFA"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+
+                <!-- INFO ICON -->
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/mark"
+                    android:tint="#5C4DFF" />
+
+                <!-- HINDI TEXT -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="यहाँ आपके सभी पिछले ऑर्डर दिखाए गए हैं।"
+                        android:textColor="#000000"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="आप इनवॉइस डाउनलोड कर सकते हैं या उसी पते पर दोबारा ऑर्डर कर सकते हैं।"
+                        android:textColor="#333333"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <!-- CLOSE ICON -->
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/wrong"
+                    android:tint="#1D1C1C"/>
+            </LinearLayout>
+
+            <!-- ORDER CARD -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- TOP -->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgTruck1"
+                            android:layout_width="70dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/truck"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/imgTruck1"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Four Wheeler"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="05 Feb, 4:46 PM | Order ID: #ORD12345"
+                                android:textSize="11sp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="₹229.0"
+                            android:textStyle="bold"
+                            android:textSize="18sp"/>
+
+                    </RelativeLayout>
+
+
+                    <!-- LOCATION -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="82dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <!-- PICKUP -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:src="@drawable/ggps"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="741, Gumanwara"
+                                android:textSize="13sp"/>
+
+                        </LinearLayout>
+
+                        <!-- DROP -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_marginTop="2dp"
+                                android:src="@drawable/rgps"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00, Main Rd, Shivaji Nagar, Jhansi,"
+                                    android:textSize="13sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Uttar Pradesh 284001, India"
+                                    android:textColor="#5F5C5C"
+                                    android:textSize="13sp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!-- BUTTONS -->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CANCELLED"
+                            android:textColor="#E53935"
+                            android:textStyle="bold"/>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Invoice"
+                            app:icon="@drawable/download"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:text="Book Again"
+                            app:backgroundTint="#FFCC00"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- FIFTH ORDER CARD -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:id="@+id/imgTruck5"
+                        android:layout_width="70dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/truck"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtTitle5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Container Truck"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/imgTruck5"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtDate5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15 Feb, 1:20 PM | Order ID: #ORD56781"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle5"
+                        app:layout_constraintTop_toBottomOf="@id/txtTitle5"/>
+
+                    <TextView
+                        android:id="@+id/txtPrice5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹890.0"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <LinearLayout
+                        android:id="@+id/pickupLayout5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle5"
+                        app:layout_constraintTop_toBottomOf="@id/txtDate5"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:src="@drawable/ggps"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Ajni Square"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dropLayout5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle5"
+                        app:layout_constraintTop_toBottomOf="@id/pickupLayout5"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:src="@drawable/rgps"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Wardhaman Nagar"
+                            android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dropLayout5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:text="COMPLETED"
+                            android:textColor="#43A047"
+                            android:textStyle="bold"/>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Invoice"
+                            app:icon="@drawable/download"
+                            app:iconPadding="6dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:text="Book Again"
+                            app:backgroundTint="#FFCC00"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- SIXTH ORDER CARD -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:id="@+id/imgTruck6"
+                        android:layout_width="70dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/truck"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtTitle6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Mini Tempo"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/imgTruck6"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtDate6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18 Feb, 9:00 AM | Order ID: #ORD77712"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle6"
+                        app:layout_constraintTop_toBottomOf="@id/txtTitle6"/>
+
+                    <TextView
+                        android:id="@+id/txtPrice6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹299.0"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <LinearLayout
+                        android:id="@+id/pickupLayout6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle6"
+                        app:layout_constraintTop_toBottomOf="@id/txtDate6"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:src="@drawable/ggps"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Manewada"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dropLayout6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle6"
+                        app:layout_constraintTop_toBottomOf="@id/pickupLayout6"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:src="@drawable/rgps"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Besa Road"
+                            android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dropLayout6">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:text="CANCELLED"
+                            android:textColor="#E53935"
+                            android:textStyle="bold"/>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Invoice"
+                            app:icon="@drawable/download"
+                            app:iconPadding="6dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:text="Book Again"
+                            app:backgroundTint="#FFCC00"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- SEVENTH ORDER CARD -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginBottom="90dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:id="@+id/imgTruck7"
+                        android:layout_width="70dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/truck"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtTitle7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Open Truck"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/imgTruck7"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtDate7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20 Feb, 6:45 PM | Order ID: #ORD10001"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle7"
+                        app:layout_constraintTop_toBottomOf="@id/txtTitle7"/>
+
+                    <TextView
+                        android:id="@+id/txtPrice7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹1200.0"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <LinearLayout
+                        android:id="@+id/pickupLayout7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle7"
+                        app:layout_constraintTop_toBottomOf="@id/txtDate7"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:src="@drawable/ggps"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Civil Lines"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dropLayout7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="@id/txtTitle7"
+                        app:layout_constraintTop_toBottomOf="@id/pickupLayout7"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:src="@drawable/rgps"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Hingna MIDC"
+                            android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dropLayout7">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:text="COMPLETED"
+                            android:textColor="#43A047"
+                            android:textStyle="bold"/>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Invoice"
+                            app:icon="@drawable/download"
+                            app:iconPadding="6dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:text="Book Again"
+                            app:backgroundTint="#FFCC00"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:menu="@menu/bottom_nav_menu"/>
+
+</RelativeLayout>
